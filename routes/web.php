@@ -19,6 +19,4 @@ use App\Http\Controllers\ProductController;
 Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
 
 
-Route::get('/add-product',[ProductController::class,'addProduct'])->name('new-product');
-
-Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
+Route::resource('product', ProductController::class);

@@ -14,7 +14,7 @@
         </div>
         <div class="card">
             <div class="card-body card-block">
-                <form action="{{ route('saveProduct') }}" method="POST" class="form-horizontal">
+                <form action="{{ route('product.store') }}" method="POST" class="form-horizontal">
                     @csrf
                     <div class="row form-group">
                         <div class="col-md-4">
