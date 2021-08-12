@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->enum('product_brand',['Blue 40','Expert Items']);
             $table->decimal('product_purchase_price');
             $table->decimal('product_sale_price');
-            $table->enum('[product_unit',['Color & Size','Color','Size','Pc(s)']);
+            $table->string('product_unit');
             $table->string('product_tag');
             $table->bigInteger('alert_quantity');
             $table->boolean('product_status')->comment('Active/InActive');
