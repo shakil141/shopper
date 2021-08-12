@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
@@ -22,3 +23,6 @@ Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
 Route::get('/add-product',[ProductController::class,'addProduct'])->name('new-product');
 
 Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
+
+// brands
+Route::resource('brands', BrandController::class);
