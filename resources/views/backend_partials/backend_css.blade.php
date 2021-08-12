@@ -85,5 +85,8 @@
         color: #000!important;
     }
 
+    th{
+        font-size: 8px;
+    }
   
 </style>
