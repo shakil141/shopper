@@ -14,15 +14,16 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
+            
             $table->bigIncrements('id');
-            $table->enum('product_type', ['In Stock Space', 'Pre Order']);
-            $table->enum('product_store', ['Blue 40', 'Pre Order']);
+            $table->string('product_type');
+            $table->string('product_store');
             $table->string('product_special_search',55);
             $table->string('product_name',55);
             $table->string('product_slug');
             $table->string('product_category');
             $table->string('product_sub_category',55);
-            $table->enum('product_brand',['Blue 40','Expert Items']);
+            $table->string('product_brand');
             $table->decimal('product_purchase_price');
             $table->decimal('product_sale_price');
             $table->string('product_unit');

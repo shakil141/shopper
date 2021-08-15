@@ -6,16 +6,21 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-between main-wrapper">
             <div class="panel-heading-table">
-                <h2>Add New Product</h2>
+                <h2>Edit {{ $single_product->product_name }}</h2>
+                <a href="{{ route('product.create') }}">
+                    <button type="button" class="btn btn-primary btn-xs text-white">Add Product</button>
+                </a>
             </div>
-            <a href="{{ route('product.index') }}">
-                <button type="button" class="btn btn-primary btn-xs text-white">Product list</button>
-            </a>
+            <div class="d-flex justify-content-between">
+                <a href="{{ route('product.index') }}">
+                    <button type="button" class="btn btn-primary btn-xs text-white">Product list</button>
+                </a>
+            </div>
         </div>
         <div class="card">
             <div class="card-body card-block">
                 
-                <form action="{{ route('product.store') }}" method="POST" class="form-horizontal">
+                <form action="" method="POST" class="form-horizontal">
                     @csrf
                     <div class="row form-group">
                         <div class="col-md-4">
@@ -47,7 +52,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Special Search</label>
-                                <input name="product_special_search" value="{{ old('product_special_search') }}" type="text" placeholder="Product Special Search" class="form-control @error('product_special_search') is-invalid @enderror">
+                                <input name="product_special_search" value="{{ old('product_special_search') ?? $single_product->product_special_search  }}" type="text" placeholder="Product Special Search" class="form-control @error('product_special_search') is-invalid @enderror">
                             </div>
                             @error('product_type')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -59,7 +64,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Name</label>
-                                <input name="product_name" value="{{ old('product_name') }}" type="text" placeholder="Enter Product Name" class="form-control">
+                                <input name="product_name" value="{{ old('product_name') ?? $single_product->product_name }}" type="text" placeholder="Enter Product Name" class="form-control">
                             </div>
                             @error('product_type')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -68,7 +73,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="" class=" form-title form-control-label">Product Slug</label>
-                                <input name="product_slug" value="{{ old('product_slug') }}" type="text" placeholder="Product Slug" class="form-control">
+                                <input name="product_slug" value="{{ old('product_slug') ?? $single_product->product_slug }}" type="text" placeholder="Product Slug" class="form-control">
                             </div>
                             @error('product_slug')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -119,7 +124,7 @@
                         <div class="col col-md-4">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Sub Category</label>
-                                <input name="product_sub_category" value="{{ old('product_sub_category') }}" type="text" placeholder="Product Sub Category" class="form-control">
+                                <input name="product_sub_category" value="{{ old('product_sub_category') ?? $single_product->product_sub_category }}" type="text" placeholder="Product Sub Category" class="form-control">
                             </div>
                             @error('product_sub_category')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -143,7 +148,7 @@
                         <div class="col col-md-4">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Purchase Price</label>
-                                <input name="product_purchase_price" value="{{ old('product_purchase_price') }}" type="number" placeholder="Enter Purchase Price" class="form-control">
+                                <input name="product_purchase_price" value="{{ old('product_purchase_price') ?? $single_product->product_purchase_price }}" type="number" placeholder="Enter Purchase Price" class="form-control">
                             </div>
                             @error('product_purchase_price')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -152,7 +157,7 @@
                         <div class="col col-md-4">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Sale Price</label>
-                                <input name="product_sale_price" value="{{ old('product_sale_price') }}" type="number" placeholder="Enter Sale Price" class="form-control">
+                                <input name="product_sale_price" value="{{ old('product_sale_price') ?? $single_product->product_sale_price }}" type="number" placeholder="Enter Sale Price" class="form-control">
                             </div>
                             @error('product_sale_price')
                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -178,7 +183,7 @@
                         <div class="col col-md-4">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Tag</label>
-                                <input name="product_tag" value="{{ old('product_tag') }}" type="text" placeholder="Add a tag" class="form-control">
+                                <input name="product_tag" value="{{ old('product_tag') ?? $single_product->product_tag }}" type="text" placeholder="Add a tag" class="form-control">
                             </div>
                             @error('product_tag')
                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -209,7 +214,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label"><i class="fas fa-align-justify"></i> Product Description</label>
-                                <textarea name="product_description" value="{{ old('product_description') }}" class="form-control" name="summernote" id="summernote"></textarea>  
+                                <textarea name="product_description" value="{{ old('product_description') ?? $single_product->product_description }}" class="form-control" name="summernote" id="summernote"></textarea>  
                             </div>
                             @error('product_description')
                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -222,7 +227,7 @@
                                 <div class="form-group d-flex flex-column">
                                     <label for="" class="form-title form-control-label"><i class="fas fa-align-justify"></i> Seo Friendly Title</label>
                                     <span style="font-size: 13px">*Write An Seo Friendly Title Within 60 Characters</span>
-                                    <input name="seo_friendly_title" value="{{ old('seo_friendly_title') }}" type="text" placeholder="Enter Seo Friendly Title" class="form-control">
+                                    <input name="seo_friendly_title" value="{{ old('seo_friendly_title') ?? $single_product->seo_friendly_title }}" type="text" placeholder="Enter Seo Friendly Title" class="form-control">
                                 </div>
                                 @error('seo_friendly_title')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -234,7 +239,7 @@
                                 <div class="form-group d-flex flex-column">
                                     <label for="" class="form-title form-control-label"><i class="fas fa-align-justify"></i> Seo Friendly Description</label>
                                     <span style="font-size: 13px">*Write An Seo Description Title Within 160 Characters</span>
-                                    <textarea name="seo_friendly_description" value="{{ old('seo_friendly_description') }}" type="text" placeholder="Enter Seo Friendly Description" class="form-control"></textarea>
+                                    <textarea name="seo_friendly_description" value="{{ old('seo_friendly_description') ?? $single_product->seo_friendly_description }}" type="text" placeholder="Enter Seo Friendly Description" class="form-control"></textarea>
                                 </div>
                                 @error('seo_friendly_description')
                                     <div class="alert alert-danger">{{ $message }}</div>

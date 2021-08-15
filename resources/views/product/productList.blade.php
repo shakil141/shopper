@@ -14,6 +14,8 @@
         </div>
         <div class="card">
             <div class="card-body">
+               @include('backend_partials.toast')
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -58,11 +60,15 @@
                                 <td>{{ $product->seo_friendly_title }}</td>
                                 <td>{{ $product->seo_friendly_description }}</td>
                                 <td class="d-flex">
-                                    <button  class="btn-sm btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                    <form method="POST" action="{{ route('product.destroy',[ 'product' => $product->id ]) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button onclick="return confirm('Are You Sure!')"  class="btn-sm btn btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
                                     <a style="margin-left: 8px"
-                                   href=""
+                                   href="{{ route('product.edit',['product' => $product->id]) }}"
                                    class="btn-sm btn btn-primary">
                                     <i class="fas fa-edit"></i>
                                 </a>

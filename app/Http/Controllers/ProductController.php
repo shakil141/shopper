@@ -69,7 +69,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $single_product = Product::findOrFail($id);
+        
+        return view('product.editProduct',['single_product'=>$single_product]);
+       
     }
 
     /**
@@ -90,8 +93,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
-        //
+        Product::findOrFail($id)->delete();
+
+        $value = "Product Deleted Successfully"; 
+
+        $request->session()->flash('alert-danger', $value);
+
+        return redirect()->route('product.index');
     }
 }
