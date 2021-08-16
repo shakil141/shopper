@@ -89,5 +89,9 @@
     th{
         font-size: 8px;
     }
-  
+    .table td, .table th{
+        font-size: 8px;
+        color: #ffffff;
+    }
+    
 </style>

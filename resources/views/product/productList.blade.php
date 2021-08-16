@@ -16,7 +16,7 @@
             <div class="card-body">
                @include('backend_partials.toast')
 
-                <table class="table table-striped">
+                <table class="table table-dark">
                     <thead>
                         <tr>
                             <th scope="col">SL No</th>
@@ -56,7 +56,7 @@
                                 <td>{{ $product->product_unit }}</td>
                                 <td>{{ $product->product_tag }}</td>
                                 <td>{{ $product->product_status }}</td>
-                                <td>{{ $product->product_description }}</td>
+                                <td>{!! $product->product_description !!}</td>
                                 <td>{{ $product->seo_friendly_title }}</td>
                                 <td>{{ $product->seo_friendly_description }}</td>
                                 <td class="d-flex">

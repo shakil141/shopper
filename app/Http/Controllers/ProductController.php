@@ -82,9 +82,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request , Product $product)
     {
-        //
+        //$single_product = Product::findOrFail($id);
+
+        $product->fill($request->all())->save();
+        
+        $value = "Product Updated Successfully";
+
+        $request->session()->flash('alert-success', $value);
+
+        return redirect()->route('product.index');
     }
 
     /**

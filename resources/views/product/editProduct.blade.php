@@ -20,16 +20,16 @@
         <div class="card">
             <div class="card-body card-block">
                 
-                <form action="" method="POST" class="form-horizontal">
+                <form action="{{ route('product.update' , ['product' => $single_product->id ]) }}" method="POST" class="form-horizontal">
                     @csrf
+                    @method('PUT')
                     <div class="row form-group">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class=" form-title form-control-label">Product Type</label>
                                 <select name="product_type" class="form-select form-control" aria-label="Default select example">
-                                    <option selected hidden value="">Select select Type</option>
-                                    <option value="In Stock Space">In Stock Space</option>
-                                    <option value="Pre Order">Pre Order</option>
+                                    <option value="In Stock Space" {{ $single_product->product_type == 'In Stock Space' ? 'selected' : '' }} >In Stock Space</option>
+                                    <option value="Pre Order" {{ $single_product->product_type == 'Pre Order' ? 'selected' : '' }} >Pre Order</option>
                                   </select>    
                             </div>
                             @error('product_type')
@@ -40,9 +40,8 @@
                             <div class="form-group">
                                 <label  class=" form-title form-control-label">Product Store</label>
                                 <select name="product_store" class="form-select form-control" aria-label="Default select example">
-                                    <option selected hidden value="">Select Store</option>
-                                    <option value="Blue 40">Blue 40</option>
-                                    <option value="Red In">Red In</option>
+                                    <option value="Blue 40" {{ $single_product->product_store == 'Blue 40' ? 'selected' : '' }} >Blue 40</option>
+                                    <option value="Red In" {{ $single_product->product_store == 'Red In' ? 'selected' : '' }} >Red In</option>
                                 </select>
                             </div>
                             @error('product_type')
@@ -92,29 +91,30 @@
                             <div class="form-group">
                                 <label  class="form-title  form-control-label">Product Category</label>
                                 <select name="product_category" class="form-select form-control" aria-label="Default select example">
-                                    <option selected hidden value="">Select Category</option>
-                                    <option value="Tops & T-Shirts">Tops & T-Shirts</option>
-                                    <option value="Pants">Pants</option>
-                                    <option value="Skirts">Skirts</option>
-                                    <option value="Shirts">Shirts</option>
-                                    <option value="Bodycon">Bodycon</option>
-                                    <option value="Jackets & Coats">Jackets & Coats</option>
-                                    <option value="Sweaters & Hoodies">Sweaters & Hoodies</option>
-                                    <option value="Jumpsuits">Jumpsuits</option>
-                                    <option value="Socks & Tights">Socks & Tights</option>
-                                    <option value="GYM & Sports">GYM & Sports</option>
-                                    <option value="Dresses">Dresses</option>
-                                    <option value="Kurtis & Tunics">Kurtis & Tunics</option>
-                                    <option value="Lehenga">Lehenga</option>
-                                    <option value="Sarees">Sarees</option>
-                                    <option value="Scarves & Shawls">Scarves & Shawls</option>
-                                    <option value="Shrugs">Shrugs</option>
-                                    <option value="Gowns">Gowns</option>
-                                    <option value="Salwar Suit (3 PCS)">Salwar Suit (3 PCS)</option>
-                                    <option value="Kaptan Dresses">Kaptan Dresses</option>
-                                    <option value="Lingeries">Lingeries</option>
-                                    <option value="Casual Shoes">Casual Shoes</option>
-                                    <option value="Formal Shoes">Formal Shoes</option>
+                    
+                                    <option value="Tops & T-Shirts" {{ $single_product->product_category == 'Tops & T-Shirts' ? 'selected' : '' }} >Tops & T-Shirts</option>
+                                    <option value="Pants" {{ $single_product->product_category == 'Pants' ? 'selected' : '' }} >Pants</option>
+                                    <option value="Skirts" {{ $single_product->product_category == 'Skirts' ? 'selected' : '' }} >Skirts</option>
+                                    <option value="Shirts" {{ $single_product->product_category == 'Shirts' ? 'selected' : '' }} >Shirts</option>
+                                    <option value="Bodycon" {{ $single_product->product_category == 'Bodycon' ? 'selected' : '' }} >Bodycon</option>
+                                    <option value="Jackets & Coats" {{ $single_product->product_category == 'Jackets & Coats' ? 'selected' : '' }} >Jackets & Coats</option>
+                                    <option value="Sweaters & Hoodies" {{ $single_product->product_category == 'Sweaters & Hoodies' ? 'selected' : '' }} >Sweaters & Hoodies</option>
+                                    <option value="Jumpsuits" {{ $single_product->product_category == 'Jumpsuits' ? 'selected' : '' }} >Jumpsuits</option>
+                                    <option value="Socks & Tights" {{ $single_product->product_category == 'Socks & Tights' ? 'selected' : '' }} >Socks & Tights</option>
+                                    <option value="GYM & Sports" {{ $single_product->product_category == 'GYM & Sports' ? 'selected' : '' }} >GYM & Sports</option>
+                                    <option value="Dresses" {{ $single_product->product_category == 'Dresses' ? 'selected' : '' }} >Dresses</option>
+                                    <option value="Kurtis & Tunics" {{ $single_product->product_category == 'Kurtis & Tunics' ? 'selected' : '' }} >Kurtis & Tunics</option>
+                                    <option value="Lehenga" {{ $single_product->product_category == 'Lehenga' ? 'selected' : '' }} >Lehenga</option>
+                                    <option value="Sarees" {{ $single_product->product_category == 'Sarees' ? 'selected' : '' }} >Sarees</option>
+                                    <option value="Scarves & Shawls" {{ $single_product->product_category == 'Scarves & Shawls' ? 'selected' : '' }}>Scarves & Shawls</option>
+                                    <option value="Shrugs" {{ $single_product->product_category == 'Shrugs' ? 'selected' : '' }} >Shrugs</option>
+                                    <option value="Gowns" {{ $single_product->product_category == 'Gowns' ? 'selected' : '' }} >Gowns</option>
+                                    <option value="Salwar Suit (3 PCS)" {{ $single_product->product_category == 'Salwar Suit (3 PCS)' ? 'selected' : '' }} >Salwar Suit (3 PCS)</option>
+                                    <option value="Kaptan Dresses" {{ $single_product->product_category == 'Kaptan Dresses' ? 'selected' : '' }} >Kaptan Dresses</option>
+                                    <option value="Lingeries" {{ $single_product->product_category == 'Lingeries' ? 'selected' : '' }} >Lingeries</option>
+                                    <option value="Casual Shoes" {{ $single_product->product_category == 'Casual Shoes' ? 'selected' : '' }} >Casual Shoes</option>
+                                    <option value="Formal Shoes" {{ $single_product->product_category == 'Formal Shoes' ? 'selected' : '' }} >Formal Shoes</option>
+
                                 </select>
                             </div>
                             @error('product_category')
@@ -134,9 +134,10 @@
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Brand</label>
                                 <select name="product_brand" class="form-select form-control" aria-label="Default select example">
-                                    <option selected hidden value="">Select product Brand</option>
-                                    <option value="Blue 40">Blue 40</option>
-                                    <option value="Expert Items">Expert Items</option>
+                                    
+                                    <option value="Blue 40" {{ $single_product->product_brand == 'Blue 40' ? 'selected' : '' }} >Blue 40</option>
+                                    <option value="Expert Items" {{ $single_product->product_brand == 'Expert Items' ? 'selected' : '' }} >Expert Items</option>
+
                                 </select>
                             </div>
                             @error('product_brand')
@@ -167,11 +168,12 @@
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Unit</label>
                                 <select name="product_unit" class="form-select form-control" aria-label="Default select example">
-                                    <option selected hidden value="">Select product Unit</option>
-                                    <option value="Color & Size">Color & Size</option>
-                                    <option value="Color">Color</option>
-                                    <option value="Size">Size</option>
-                                    <option value="Pc(s)">Pc(s)</option>
+                                    
+                                    <option value="Color & Size" {{ $single_product->product_unit == 'Color & Size' ? 'selected' : '' }} >Color & Size</option>
+                                    <option value="Color" {{ $single_product->product_unit == 'Color' ? 'selected' : '' }} >Color</option>
+                                    <option value="Size" {{ $single_product->product_unit == 'Size' ? 'selected' : '' }} >Size</option>
+                                    <option value="Pc(s)" {{ $single_product->product_unit == 'Pc(s)' ? 'selected' : '' }}>Pc(s)</option>
+
                                 </select>
                             </div>
                             @error('product_unit')
@@ -200,9 +202,10 @@
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Status</label>
                                 <select name="product_status" class="form-select form-control" aria-label="Default select example">
-                                    <option value='' selected disable>Select</option>
-                                    <option value="0">Active</option>
-                                    <option value="1">Inacive</option>
+                                    
+                                    <option value="0" {{ $single_product->product_status == '0' ? 'selected' : '' }} >Active</option>
+                                    <option value="1" {{ $single_product->product_status == '1' ? 'selected' : '' }} >Inacive</option>
+
                                 </select>
                             </div>
                             @error('product_status')
@@ -214,7 +217,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label"><i class="fas fa-align-justify"></i> Product Description</label>
-                                <textarea name="product_description" value="{{ old('product_description') ?? $single_product->product_description }}" class="form-control" name="summernote" id="summernote"></textarea>  
+                                <textarea type="text" name="product_description" value="{{ old('product_description') ?? $single_product->product_description }}" class="form-control" name="summernote" id="summernote"></textarea>  
                             </div>
                             @error('product_description')
                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -248,7 +251,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-end sub-btn">
-                        <input type="submit" class="btn btn-sm btn-primary" value="Submit">
+                        <input type="submit" class="btn btn-primary" value="Update">
                     </div>
                 </form>
             </div>
