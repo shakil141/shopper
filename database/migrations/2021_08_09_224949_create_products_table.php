@@ -29,7 +29,7 @@ class CreateProductsTable extends Migration
             $table->string('product_unit');
             $table->string('product_tag');
             $table->bigInteger('alert_quantity');
-            $table->boolean('product_status')->comment('Active/InActive');
+            $table->boolean('status')->comment('Active/InActive');
             $table->longText('product_description')->nullable();
             $table->string('seo_friendly_title',55);
             $table->longText('seo_friendly_description')->nullable();

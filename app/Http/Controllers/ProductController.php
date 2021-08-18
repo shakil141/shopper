@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {   
         $all_products = Product::paginate();
-
+        
         return view('product.productList',['all_products'=>$all_products]);
     }
 

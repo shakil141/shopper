@@ -42,23 +42,23 @@
                     <tbody>
                         @foreach ($all_products as $product)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $product->product_type }}</td>
-                                <td>{{ $product->product_store }}</td>
-                                <td>{{ $product->product_special_search }}</td>
-                                <td>{{ $product->product_name }}</td>
-                                <td>{{ $product->product_slug }}</td>
-                                <td>{{ $product->product_category }}</td>
-                                <td>{{ $product->product_sub_category }}</td>
-                                <td>{{ $product->product_brand }}</td>
-                                <td>{{ $product->product_purchase_price }}</td>
-                                <td>{{ $product->product_sale_price }}</td>
-                                <td>{{ $product->product_unit }}</td>
-                                <td>{{ $product->product_tag }}</td>
-                                <td>{{ $product->product_status }}</td>
-                                <td>{!! $product->product_description !!}</td>
-                                <td>{{ $product->seo_friendly_title }}</td>
-                                <td>{{ $product->seo_friendly_description }}</td>
+                                <td> {{ $loop->iteration }} </td>
+                                <td> {{ $product->product_type }} </td>
+                                <td> {{ $product->product_store }} </td>
+                                <td> {{ $product->product_special_search }} </td>
+                                <td> {{ $product->product_name }} </td>
+                                <td> {{ $product->product_slug }} </td>
+                                <td> {{ $product->product_category }} </td>
+                                <td> {{ $product->product_sub_category }} </td>
+                                <td> {{ $product->product_brand }} </td>
+                                <td> {{ $product->product_purchase_price }} </td>
+                                <td> {{ $product->product_sale_price }} </td>
+                                <td> {{ $product->product_unit }} </td>
+                                <td> {{ $product->product_tag }} </td>
+                                <td> {{ $product->status }} </td>
+                                <td> {!! $product->product_description !!} </td>
+                                <td> {{ $product->seo_friendly_title }} </td>
+                                <td> {{ $product->seo_friendly_description }} </td>
                                 <td class="d-flex">
                                     <form method="POST" action="{{ route('product.destroy',[ 'product' => $product->id ]) }}">
                                         @csrf
@@ -77,8 +77,11 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                    {{ $all_products->links() }}
+                </div>
             </div>
-           
+            
         </div>
     </div>
 @endsection

@@ -201,14 +201,14 @@
                         <div class="col col-md-4">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Status</label>
-                                <select name="product_status" class="form-select form-control" aria-label="Default select example">
+                                <select name="status" class="form-select form-control" aria-label="Default select example">
                                     
-                                    <option value="0" {{ $single_product->product_status == '0' ? 'selected' : '' }} >Active</option>
-                                    <option value="1" {{ $single_product->product_status == '1' ? 'selected' : '' }} >Inacive</option>
+                                    <option value="0" {{ $single_product->product_status == '0' ? 'selected' : '' }} >In Active</option>
+                                    <option value="1" {{ $single_product->product_status == '1' ? 'selected' : '' }} >Active</option>
 
                                 </select>
                             </div>
-                            @error('product_status')
+                            @error('status')
                                  <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>

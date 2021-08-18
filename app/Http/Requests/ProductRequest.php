@@ -36,7 +36,7 @@ class ProductRequest extends FormRequest
             'product_sale_price' => 'required',
             'product_unit' => 'required',
             'product_tag' => 'required',
-            'product_status' => 'required',
+            'status' => 'required',
             'product_description' => 'required',
             'seo_friendly_title' => 'required',
             'seo_friendly_description' => 'required',
