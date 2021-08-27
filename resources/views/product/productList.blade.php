@@ -16,7 +16,7 @@
             <div class="card-body">
                @include('backend_partials.toast')
 
-                <table class="table table-dark">
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">SL No</th>
@@ -36,7 +36,7 @@
                             <th scope="col">Product_Description</th>
                             <th scope="col">Seo_Friendly_Title</th>
                             <th scope="col">Seo_Friendly_Description</th>
-                            <td scope="col">Action</td>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,7 +81,7 @@
                     {{ $all_products->links() }}
                 </div>
             </div>
-            
+
         </div>
     </div>
 @endsection

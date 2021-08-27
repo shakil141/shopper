@@ -91,7 +91,7 @@
     }
     .table td, .table th{
         font-size: 8px;
-        color: #ffffff;
+        color: rgb(0, 0, 0);
     }
-    
+
 </style>
