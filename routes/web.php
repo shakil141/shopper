@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
@@ -16,7 +17,15 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
+Route::resource('/',LoginController::class)->only('index','store');
+
+Route::group(['prefix' =>'backend'],function(){
+
+    Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
+
+    Route::resource('product', ProductController::class);
+});
 
 
-Route::resource('product', ProductController::class);
+
+
