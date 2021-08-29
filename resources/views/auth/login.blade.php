@@ -19,7 +19,7 @@
             <div class="login-content">
                 <div class="login-logo">
                     <a href="index.html">
-
+                        @include('backend_partials.toast')
                     </a>
                 </div>
                 <div class="login-form">

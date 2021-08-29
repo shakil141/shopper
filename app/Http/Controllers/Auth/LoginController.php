@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginFormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -44,6 +45,8 @@ class LoginController extends Controller
             return redirect()->route('dashborad');
 
         }else{
+            Session::flash('alert-danger',"Email and Password Doesn't Match");
+
             return redirect()->to('/');
         }
     }
