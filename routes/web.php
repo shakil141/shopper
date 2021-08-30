@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+
+use App\Http\Controllers\BrandController;
+
 use App\Http\Controllers\Auth\LoginController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
@@ -28,6 +32,8 @@ Route::group(['prefix' =>'backend'],function(){
     Route::resource('product', ProductController::class);
 });
 
+Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
 
-
+// brands
+Route::resource('brands', BrandController::class);
 
