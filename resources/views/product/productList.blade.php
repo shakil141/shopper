@@ -4,13 +4,15 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="d-flex justify-content-between main-wrapper">
-            <div class="panel-heading-table">
-                <h2>Product List</h2>
+        <div class="main-wrapper">
+            <div class="table_heading_wrapper d-flex justify-content-between">
+                <div class="panel-heading-table">
+                    <h2>Product List</h2>
+                </div>
+                <a href="{{ route('product.create') }}">
+                    <button type="button" class="btn btn-primary btn-sm text-white">Add Product</button>
+                </a>
             </div>
-            <a href="{{ route('product.create') }}">
-                <button type="button" class="btn btn-primary btn-xs text-white">Add Product</button>
-            </a>
         </div>
         <div class="card">
             <div class="card-body">

@@ -95,4 +95,13 @@ class LoginController extends Controller
     {
         //
     }
+
+    // logout system
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->to('/');
+    }
 }

@@ -4,17 +4,19 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="d-flex justify-content-between main-wrapper">
-            <div class="panel-heading-table">
-                <h2>Add New Product</h2>
+        <div class=" main-wrapper">
+            <div class="table_heading_wrapper d-flex justify-content-between">
+                <div class="panel-heading-table">
+                    <h2>Add New Product</h2>
+                </div>
+                <a href="{{ route('product.index') }}">
+                    <button type="button" class="btn btn-primary btn-xs text-white">Product list</button>
+                </a>
             </div>
-            <a href="{{ route('product.index') }}">
-                <button type="button" class="btn btn-primary btn-xs text-white">Product list</button>
-            </a>
         </div>
         <div class="card">
             <div class="card-body card-block">
-                
+
                 <form action="{{ route('product.store') }}" method="POST" class="form-horizontal">
                     @csrf
                     <div class="row form-group">
@@ -25,7 +27,7 @@
                                     <option selected hidden value="">Select select Type</option>
                                     <option value="In Stock Space">In Stock Space</option>
                                     <option value="Pre Order">Pre Order</option>
-                                  </select>    
+                                  </select>
                             </div>
                             @error('product_type')
                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -53,7 +55,7 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        
+
                     </div>
                     <div class="row form-group">
                         <div class="col-md-4">
@@ -79,7 +81,7 @@
                                 <label for="" class="form-title form-control-label">Product Sku</label>
                                 <input type="text" placeholder="Product Slug" class="form-control">
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="row form-group">
@@ -189,7 +191,7 @@
                                 <label for="" class="form-title form-control-label">Alert Quantity</label>
                                 <input name="alert_quantity"  type="number" value="10" class="form-control">
                             </div>
-                            
+
                         </div>
                         <div class="col col-md-4">
                             <div class="form-group">
@@ -209,13 +211,13 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label"><i class="fas fa-align-justify"></i> Product Description</label>
-                                <textarea name="product_description" value="{{ old('product_description') }}" class="form-control" name="summernote" id="summernote"></textarea>  
+                                <textarea name="product_description" value="{{ old('product_description') }}" class="form-control" name="summernote" id="summernote"></textarea>
                             </div>
                             @error('product_description')
                                  <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                           
+
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
@@ -247,7 +249,7 @@
                     </div>
                 </form>
             </div>
-           
+
         </div>
     </div>
 @endsection

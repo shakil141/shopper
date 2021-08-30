@@ -19,6 +19,8 @@ use App\Http\Controllers\ProductController;
 
 Route::resource('/',LoginController::class)->only('index','store');
 
+Route::post('logout',[LoginController::class,'logout'])->name('logout');
+
 Route::group(['prefix' =>'backend'],function(){
 
     Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
