@@ -11,8 +11,8 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Product</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('new-product') }}">Add Product</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Product List</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('product.create') }}">Add Product</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{ route('product.index') }}">Product List</a></li>
                         
                     </ul>
                 </li>

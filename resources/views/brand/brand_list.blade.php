@@ -35,8 +35,8 @@
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('Are You Delete?')"><i class="fas fa-trash"></i></button>
                     </form>
-                    <a href="{{route('brands.edit',['brand'=>$brand->id])}}" style="margin-left: 2%" class="btn-xs btn-primary">
-                        <i class="fas fa-edit"></i>
+                    <a href="{{route('brands.edit',['brand'=>$brand->id])}}" style="margin-left: 5%" class="btn-sm btn-primary">
+                        <i class="fa fa-edit"></i>
                     </a>
                 </td>
             </tr> 

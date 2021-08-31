@@ -17,6 +17,7 @@
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
+
 <style>
 #weatherWidget .currentDesc {
     color: #ffffff!important;
@@ -85,5 +86,27 @@
         color: #000!important;
     }
 
-  
+    th{
+        font-size: 8px;
+    }
+    .table td, .table th{
+        font-size: 8px;
+        color: rgb(0, 0, 0);
+    }
+
+    .table_heading_wrapper {
+    padding: 9px;
+    width: 100%;
+    /* background-color: #0cbaba; */
+    /* background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%); */
+    background-color: #b3cdd1;
+    background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
+    border-radius: 2px;
+    border-color: rgba(226,232,240,var(--border-opacity));
+    }
+
+    .table_heading_wrapper a {
+        margin-top: 8px;
+    }
+
 </style>
