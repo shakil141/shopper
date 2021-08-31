@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
 Route::get('/add-product',[ProductController::class,'addProduct'])->name('new-product');
 
 Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
+
+Route::resource('/categories',CategoryController::class);
