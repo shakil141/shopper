@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,8 @@ Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('sav
 
 // brands
 Route::resource('brands', BrandController::class);
+
+Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
+
+Route::resource('/categories',CategoryController::class);
 
