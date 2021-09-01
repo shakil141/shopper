@@ -11,12 +11,13 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Product</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('new-product') }}">Add Product</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Product List</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('product.create') }}">Add Product</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{ route('product.index') }}">Product List</a></li>
                         
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
+
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Category</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('categories.create') }}">Add Category</a></li>
@@ -25,10 +26,11 @@
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Brand</a>
+
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                        <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
+                        <li><i class="fa fa-table"></i><a href="{{route('brands.create')}}">Add Brand</a></li>
+                        <li><i class="fa fa-table"></i><a href="{{route('brands.index')}}">Brand List</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">

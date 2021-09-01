@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\BrandRequest;
-use App\Models\Brand;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginFormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
-class BrandController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +17,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::paginate(10);
-        return view('brand.brand_list',[
-            'brands' => $brands
-        ]);
+        return view('auth.login');
     }
 
     /**
@@ -28,7 +27,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('brand.brand_add');
+        //
     }
 
     /**
@@ -37,12 +36,19 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BrandRequest $request)
+    public function store(LoginFormRequest $request)
     {
-        $brands = new Brand;
-        $brands->fill($request->all())->save();
-        Session()->flash('alert-success','Brands Added Successfully');
-        return redirect()->route('brands.index');
+        $userInformation = $request->only('email','password');
+
+        if(Auth::attempt($userInformation))
+        {
+            return redirect()->route('dashborad');
+
+        }else{
+            Session::flash('alert-danger',"Email and Password Doesn't Match");
+
+            return redirect()->to('/');
+        }
     }
 
     /**
@@ -64,10 +70,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brands = Brand::findOrFail($id);
-        return view('brand.brand_edit',[
-            'brands' => $brands
-        ]);
+        //
     }
 
     /**
@@ -77,12 +80,9 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BrandRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $brands = Brand::query()->findOrFail($id);
-        $brands->fill($request->all())->save();
-        Session()->flash('alert-success','Brand Update Successfully');
-        return redirect()->route('brands.index');
+        //
     }
 
     /**
@@ -93,8 +93,15 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        Brand::findOrFail($id)->first()->delete();
-        Session()->flash('alert-danger', 'Brand Delete Successfully');
-        return redirect()->route('brands.index');
+        //
+    }
+
+    // logout system
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->to('/');
     }
 }
