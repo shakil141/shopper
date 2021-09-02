@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserRoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::group(['prefix' =>'backend'],function(){
     Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
 
     Route::resource('product', ProductController::class);
+
+    Route::resource('user',UserRoleController::class);
 });
 
 //Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');

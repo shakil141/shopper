@@ -8,6 +8,17 @@
                 </li>
 
                 <li class="menu-title">Store</li><!-- /.menu-title -->
+
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-align-center"></i>RBAC</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fas fa-hand-point-right"></i><a href="{{ route('user.index') }}">User</a></li>
+                        <li><i class="fas fa-hand-point-right"></i><a href="">Role</a></li>
+                        <li><i class="fas fa-hand-point-right"></i><a href="">User Access</a></li>
+                    </ul>
+                </li>
+
+
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Product</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -24,14 +35,6 @@
                     </ul>
                 </li>
 
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-align-center"></i>RBAC</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fas fa-hand-point-right"></i><a href="">User</a></li>
-                        <li><i class="fas fa-hand-point-right"></i><a href="">Role</a></li>
-                        <li><i class="fas fa-hand-point-right"></i><a href="">User Access</a></li>
-                    </ul>
-                </li>
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
