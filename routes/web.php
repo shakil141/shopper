@@ -32,7 +32,7 @@ Route::group(['prefix' =>'backend'],function(){
     Route::resource('product', ProductController::class);
 });
 
-Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
+//Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
 
 // brands
 Route::resource('brands', BrandController::class);
