@@ -18,27 +18,24 @@
             <div class="card-body">
                @include('backend_partials.toast')
 
-                <table class="table">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">SL No</th>
-                            <th scope="col">Product_Type</th>
-                            <th scope="col">Product_Store</th>
-                            <th scope="col">Product_Special_Search</th>
-                            <th scope="col">Product_Name</th>
-                            <th scope="col">Product_Slug</th>
-                            <th scope="col">Product_Category</th>
-                            <th scope="col">Product_Sub_Category</th>
-                            <th scope="col">Product_Brand</th>
-                            <th scope="col">Product_Purchase_Price</th>
-                            <th scope="col">Product_Sale_Price</th>
-                            <th scope="col">Product_Unit</th>
-                            <th scope="col">Product_Tag</th>
-                            <th scope="col">Product_Status</th>
-                            <th scope="col">Product_Description</th>
-                            <th scope="col">Seo_Friendly_Title</th>
-                            <th scope="col">Seo_Friendly_Description</th>
-                            <th scope="col">Action</th>
+                            <th scope="col" style="background: #3498db">SL No</th>
+                            <th scope="col" style="background: #3498db">Product_Type</th>
+                            <th scope="col" style="background: #3498db">Product_Store</th>
+                            <th scope="col" style="background: #3498db">Product_Special_Search</th>
+                            <th scope="col" style="background: #3498db">Product_Name</th>
+                            <th scope="col" style="background: #3498db">Product_Slug</th>
+                            <th scope="col" style="background: #3498db">Product_Category</th>
+                            <th scope="col" style="background: #3498db">Product_Sub_Category</th>
+                            <th scope="col" style="background: #3498db">Product_Brand</th>
+                            <th scope="col" style="background: #3498db">Product_Purchase_Price</th>
+                            <th scope="col" style="background: #3498db">Product_Sale_Price</th>
+                            <th scope="col" style="background: #3498db">Product_Unit</th>
+                            <th scope="col" style="background: #3498db">Product_Tag</th>
+                            <th scope="col" style="background: #3498db">Product_Status</th>
+                            <th scope="col" style="background: #3498db">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,9 +55,6 @@
                                 <td> {{ $product->product_unit }} </td>
                                 <td> {{ $product->product_tag }} </td>
                                 <td> {{ $product->status }} </td>
-                                <td> {!! $product->product_description !!} </td>
-                                <td> {{ $product->seo_friendly_title }} </td>
-                                <td> {{ $product->seo_friendly_description }} </td>
                                 <td class="d-flex">
                                     <form method="POST" action="{{ route('product.destroy',[ 'product' => $product->id ]) }}">
                                         @csrf

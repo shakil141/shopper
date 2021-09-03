@@ -10,33 +10,58 @@
                     <h2>User List</h2>
                 </div>
 
-                    <button type="button" class="btn btn-primary btn-xs text-white"  data-toggle="modal" data-target="#exampleModalLong">Add New User</button>
+                <button type="button" class="btn btn-primary add_user_btn text-white"  data-toggle="modal" data-target="#exampleModalLong">Add New User</button>
 
             </div>
         </div>
+            @if ($errors->any())
+                <div class="row">
+                    <div class="col-md-8 d-flex justify-content-center">
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            @endif
         <div class="card">
             <div class="card-body">
             @include('backend_partials.toast')
 
-                <table class="table">
+                <table class="table table-bordered">
                     <thead>
-                        <tr>
-                            <th scope="col">SL No</th>
-                            <th scope="col">Product_Type</th>
-                            <th scope="col">Product_Store</th>
-                            <th scope="col">Product_Special_Search</th>
-                            <th scope="col">Product_Name</th>
-                            <th scope="col">Product_Slug</th>
-                            <th scope="col">Product_Category</th>
-
-                            <th scope="col">Action</th>
+                        <tr class="text-center">
+                            <th scope="col" style="background: #3498db">SL No</th>
+                            <th scope="col" style="background: #3498db">User Name</th>
+                            <th scope="col" style="background: #3498db">User Email</th>
+                            <th scope="col" style="background: #3498db">Contact No</th>
+                            {{-- <th scope="col">Store Access</th> --}}
+                            <th scope="col" style="background: #3498db">Status</th>
+                            <th scope="col" style="background: #3498db">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach ($user as $user_item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $user_item->user_name}}</td>
+                                <td>{{ $user_item->user_email}}</td>
+                                <td>{{ $user_item->phone_number}}</td>
+                                <td class="status_btn">{{ $user_item->status}}</td>
+                                <td class="text-center">
+                                    <a href="" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a  style="margin-left: 8px" href="" class="btn btn-success btn-sm"><i class="fas fa-sync-alt"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
-
+                <div class="d-flex justify-content-center">
+                    {{ $user->links() }}
+                </div>
             </div>
 
         </div>
@@ -47,49 +72,54 @@
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Add New User</h5>
+            <h5 style="font-weight:bold" class="modal-title" id="exampleModalLongTitle">Add New User</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
+
             </div>
-            <div class="modal-body">
-                <form>
+            <form action="{{ route('user.store')}}" method="POST">
+            @csrf
+                <div class="modal-body">
+
                     <div class="form-group">
-                        <label for="exampleInputFirstName">First Name</label>
-                        <input type="text" class="form-control" id="exampleInputFirstName" aria-describedby="emailHelp">
+                        <label for="exampleInputFirstName" class="strong">First Name</label>
+                        <input name="first_name" type="text" class="form-control" id="exampleInputFirstName" aria-describedby="emailHelp">
+
+
                     </div>
                     <div class="form-group">
                         <label for="exampleInputLastName">Last Name</label>
-                        <input type="text" class="form-control" id="exampleInputLastName">
+                        <input name="last_name" type="text" class="form-control" id="exampleInputLastName">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputUserName">User Name</label>
-                        <input type="text" class="form-control" id="exampleInputUserName">
+                        <input name="user_name" type="text" class="form-control" id="exampleInputUserName">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPhoneNumber">Phone Number</label>
-                        <input type="number" class="form-control" id="exampleInputPhoneNumber">
+                        <input name="phone_number" type="number" class="form-control" id="exampleInputPhoneNumber">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail">
+                        <input name="user_email" type="email" class="form-control" id="exampleInputEmail">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword">
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword">Confirm Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword">
+                        <input name="confirm_password" type="password" class="form-control" id="exampleInputPassword">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputStatus">Status</label>
-                        <select name="" id="exampleInputStatus" class="form-control">
+                        <select name="status" name="" id="exampleInputStatus" class="form-control">
                             <option value="" selected disabled>Select</option>
                             <option value="0">active</option>
                             <option value="1">inactive</option>
@@ -114,12 +144,13 @@
                           BLUE40 Ready Stock
                         </label>
                       </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <input  type="submit" class="btn btn-primary " id="formSubmit" value="Submit">
+                        </div>
                   </form>
             </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Submit</button>
-            </div>
+
         </div>
         </div>
     </div>

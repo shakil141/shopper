@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
 <link rel="stylesheet" href="{{ asset('assets/css/cs-skin-elastic.css') }}">
-<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
@@ -55,7 +56,7 @@
 
     .main-wrapper {
     border: 1px solid rgba(226,232,240,var(--border-opacity));
-    padding: 8px 15px;
+    padding: 5px 15px;
     border-color: rgba(226,232,240,var(--border-opacity));
     }
 
@@ -89,13 +90,16 @@
     th{
         font-size: 8px;
     }
+    ul{
+        list-style: none;
+    }
     .table td, .table th{
-        font-size: 8px;
+        font-size: 10px;
         color: rgb(0, 0, 0);
     }
 
     .table_heading_wrapper {
-    padding: 9px;
+    padding: 10px 13px 14px 7px;
     width: 100%;
     /* background-color: #0cbaba; */
     /* background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%); */
@@ -103,6 +107,8 @@
     background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
     border-radius: 2px;
     border-color: rgba(226,232,240,var(--border-opacity));
+    margin-top: 10px;
+    margin-bottom: 10px;
     }
 
     .table_heading_wrapper a {

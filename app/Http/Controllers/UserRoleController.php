@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
+use App\Models\Users;
 use Illuminate\Http\Request;
 
 class UserRoleController extends Controller
@@ -13,7 +15,9 @@ class UserRoleController extends Controller
      */
     public function index()
     {
-        return view('RBAC.user');
+        $user = Users::paginate();
+
+        return view('RBAC.user',['user' => $user]);
     }
 
     /**
@@ -32,9 +36,15 @@ class UserRoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request , Users $users)
     {
-        //
+        $users->fill($request->except('_token'))->save();
+        $value = "New User Added Successfully";
+
+        $request->session()->flash('alert-success', $value);
+
+        return redirect()->route('user.index');
+
     }
 
     /**
