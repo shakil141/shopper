@@ -39,13 +39,13 @@
                         <i class="fa fa-edit"></i>
                     </a>
                 </td>
-            </tr> 
+            </tr>
            @endforeach
         </tbody>
     </table>
-    <div>{{$brands->links()}}</div>
+    <div class="d-flex justify-content-center">{{$brands->links()}}</div>
     <div class="text-center">
-        
+
     </div>
 </div>
 @endsection

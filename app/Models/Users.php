@@ -20,7 +20,8 @@ class Users extends Model
         'user_email',
         'password',
         'confirm_password',
-        'status'
+        'status',
+        'store'
     ];
 
     protected $perPage = 10;
@@ -35,5 +36,15 @@ class Users extends Model
 
 
 
+    }
+
+    public function setStoreAttribute($value)
+    {
+        $this->attributes['store'] = json_encode($value);
+    }
+
+    public function getCategoryAttribute($value)
+    {
+        return $this->attributes['store'] = json_decode($value);
     }
 }

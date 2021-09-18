@@ -38,7 +38,7 @@
                             <th scope="col" style="background: #3498db">User Name</th>
                             <th scope="col" style="background: #3498db">User Email</th>
                             <th scope="col" style="background: #3498db">Contact No</th>
-                            {{-- <th scope="col">Store Access</th> --}}
+                            <th scope="col" style="background: #3498db">Store Access</th>
                             <th scope="col" style="background: #3498db">Status</th>
                             <th scope="col" style="background: #3498db">Action</th>
                         </tr>
@@ -50,9 +50,12 @@
                                 <td>{{ $user_item->user_name}}</td>
                                 <td>{{ $user_item->user_email}}</td>
                                 <td>{{ $user_item->phone_number}}</td>
+                                <td>
+
+                                </td>
                                 <td class="status_btn">{{ $user_item->status}}</td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a href=""  data-toggle="modal" data-target="#exampleModalLongEdit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
                                     <a  style="margin-left: 8px" href="" class="btn btn-success btn-sm"><i class="fas fa-sync-alt"></i></a>
                                 </td>
                             </tr>
@@ -70,16 +73,16 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 style="font-weight:bold" class="modal-title" id="exampleModalLongTitle">Add New User</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            <div class="modal-content">
+                <div class="modal-header model-heading-bg">
+                    <h5 style="font-weight:bold" class="modal-title" id="exampleModalLongTitle">Add New User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
 
-            </div>
+                </div>
             <form action="{{ route('user.store')}}" method="POST">
-            @csrf
+                @csrf
                 <div class="modal-body">
 
                     <div class="form-group">
@@ -121,25 +124,25 @@
                         <label for="exampleInputStatus">Status</label>
                         <select name="status" name="" id="exampleInputStatus" class="form-control">
                             <option value="" selected disabled>Select</option>
-                            <option value="0">active</option>
-                            <option value="1">inactive</option>
+                            <option value="0">Inactive</option>
+                            <option value="1">active</option>
                         </select>
                     </div>
                         <label for="">Store Access</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" name="store[]" type="checkbox" value="Blue 40" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Blue 40
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" name="store[]" type="checkbox" value="Red In" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Red In
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" name="store[]" type="checkbox" value="BLUE40 Ready Stock" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           BLUE40 Ready Stock
                         </label>
@@ -147,13 +150,14 @@
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         <input  type="submit" class="btn btn-primary " id="formSubmit" value="Submit">
-                        </div>
+                      </div>
+                    </div>
                   </form>
             </div>
 
         </div>
-        </div>
     </div>
+
 
 @endsection
 

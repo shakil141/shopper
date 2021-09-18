@@ -22,6 +22,7 @@ class CreateRoleUsersTable extends Migration
             $table->string('user_email')->unique();
             $table->string('password');
             $table->string('confirm_password');
+            $table->string('store');
             $table->boolean('status')->comment('0=active/1=Inactive');
             $table->timestamps();
         });

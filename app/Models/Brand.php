@@ -21,7 +21,7 @@ class Brand extends Model
     ];
 
     public function getStatusAttribute($value){
-        if($value == ApplicationConstant::Active){
+        if($value == ApplicationConstant::ACTIVE){
             return "Active";
         }
         return "InActive";

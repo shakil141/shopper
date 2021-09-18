@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
-use App\Models\Users;
+use App\Http\Requests\RoleRequest;
 use Illuminate\Http\Request;
+use App\Models\Role;
 
-class UserRoleController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class UserRoleController extends Controller
      */
     public function index()
     {
-        $user = Users::paginate();
+        $role = Role::paginate();
 
-        return view('RBAC.user',['user' => $user]);
+        return view('RBAC.role',['all_role' => $role]);
     }
 
     /**
@@ -36,15 +36,15 @@ class UserRoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request , Users $users)
+    public function store(RoleRequest $request, Role $role)
     {
-        $users->fill($request->except('_token'))->save();
+        $role->fill($request->except('_token'))->save();
 
-        $value = "New User Added Successfully";
+        $value = "New Role Added Successfully";
 
         $request->session()->flash('alert-success', $value);
 
-        return redirect()->route('user.index');
+        return redirect()->route('role.index');
 
     }
 
@@ -67,9 +67,7 @@ class UserRoleController extends Controller
      */
     public function edit($id)
     {
-        $single_user = Users::findOrFail($id);
-
-        return view('RBAC.user',['user_item'=> $single_user]);
+        //
     }
 
     /**
@@ -81,7 +79,7 @@ class UserRoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        //
     }
 
     /**
