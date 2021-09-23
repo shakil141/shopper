@@ -5,10 +5,13 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 
 use App\Http\Controllers\Auth\LoginController;
-
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DivisionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +40,14 @@ Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('sav
 // brands
 Route::resource('brands', BrandController::class);
 
+// customer
+Route::resource('customers',CustomerController::class);
+
+// store
+Route::resource('stores',StoreController::class);
+
+// supplier
+Route::resource('suppliers',SupplierController::class);
+
+// division
+Route::resource('divisions',DivisionController::class);

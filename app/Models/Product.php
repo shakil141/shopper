@@ -21,13 +21,10 @@ class Product extends Model
 
     public function getStatusAttribute($value)
     {
-        if($value == ApplicationConstant::ACTIVE)
+        if($value == ApplicationConstant::Active)
         {
             return 'Active';
         }
         return 'In Active';
-        
-
-       
     }
 }

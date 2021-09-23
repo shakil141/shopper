@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-between main-wrapper">
         <div class="panel-heading-table">
-            <h2>Add New Product</h2>
+            <h2>Add New Brand</h2>
         </div>
         <a href="{{route('brands.index')}}">
             <button type="button" class="btn btn-primary btn-xs text-white">Brand list</button>
