@@ -17,6 +17,8 @@
                 <th scope="col">Contact person</th>
                 <th scope="col">Contact no</th>
                 <th scope="col">Weekend</th>
+                <th scope="col">Open Hour</th>
+                <th scope="col">Closed Hour</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr>
@@ -29,7 +31,16 @@
                 <td>{{$store->store_address}}</td>
                 <td>{{$store->contact_person}}</td>
                 <td>{{$store->contact_no}}</td>
-                <td>{{$store->weekend}}</td>
+                @php
+                  $stores = explode(',',$store->weekend);
+                @endphp
+                <td>
+                    @foreach ($stores as $item)
+                        {{$item}}
+                    @endforeach
+                </td>
+                <td>{{$store->open_hour}}</td>
+                <td>{{$store->close_hour}}</td>
                 <td>{{$store->status}}</td>
                 <td style="display: inline-flex">
                     <form action="{{route('stores.destroy',['store'=>$store->id])}}" method="post">

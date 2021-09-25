@@ -15,7 +15,7 @@ class CreateDivisionsTable extends Migration
     {
         Schema::create('divisions', function (Blueprint $table) {
             $table->id();
-            $table->string('division_name');
+            $table->string('division_name')->unique();
             $table->tinyInteger('status')->default(1)->comment('1=Active,0=InActive');
             $table->timestamps();
         });

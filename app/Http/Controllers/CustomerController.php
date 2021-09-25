@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Requests\CustomerRequest;
+use App\Models\district;
+use App\Models\division;
+use App\Models\upzilla;
+
 class CustomerController extends Controller
 {
     /**
@@ -12,6 +16,21 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function menuWiseDivision($division_id){
+    //    try{
+           $district = district::query()->where('division_id',$division_id)->get();
+            return response()->json($district);
+            // return response()->json($district,Response::HTTP_OK);
+    //    }catch(\Exception $exception){
+    //         return response()->json($exception->getMessage(),Response::HTTP_INTERNAL_SERVER_ERROR);
+    //    }
+    }
+
+    function menuWiseDistrict($district_id){
+        $upzilla = upzilla::where('district_id',$district_id)->get();
+        return response()->json($upzilla);
+    }
+
     public function index()
     {
         $customers = Customer::get();
@@ -27,7 +46,14 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('customer.addCustomer');
+        $divisions = division::get();
+        $districts = district::get();
+        $upzillas = upzilla::get();
+        return view('customer.addCustomer',[
+            'divisions' => $divisions,
+            'districts' => $districts,
+            'upzillas' => $upzillas,
+        ]);
     }
 
     /**

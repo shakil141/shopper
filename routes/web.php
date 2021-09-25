@@ -6,12 +6,14 @@ use App\Http\Controllers\BrandController;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\DivisionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\UpazillaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,8 @@ Route::resource('brands', BrandController::class);
 
 // customer
 Route::resource('customers',CustomerController::class);
+Route::get('menu-wise-division/{division_id}',[CustomerController::class,'menuWiseDivision']);
+Route::get('menu-wise-district/{district_id}',[CustomerController::class,'menuWiseDistrict']);
 
 // store
 Route::resource('stores',StoreController::class);
@@ -51,3 +55,9 @@ Route::resource('suppliers',SupplierController::class);
 
 // division
 Route::resource('divisions',DivisionController::class);
+
+// districts
+Route::resource('districts',DistrictController::class);
+
+// upazillas
+Route::resource('upzillas',UpazillaController::class);

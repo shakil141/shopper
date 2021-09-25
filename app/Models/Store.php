@@ -24,4 +24,8 @@ class Store extends Model
         }
         return "InActive";
     }
+
+    // public function getWeekendAttribute($value){
+    //     return collect(json_decode($value))->implode(',');
+    // }
 }

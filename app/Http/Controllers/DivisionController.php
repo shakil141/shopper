@@ -13,7 +13,10 @@ class DivisionController extends Controller
      */
     public function index()
     {
-        return view('division.list_division');
+        $divisions = Division::get();
+        return view('division.list_division',[
+            'divisions' => $divisions
+        ]);
     }
 
     /**
@@ -34,9 +37,12 @@ class DivisionController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'division_name'=>'required|unique:divisions',
+            'status'=>'required'
+        ]);
         $divisions = new division;
-        $divisions->division_name = $request->division_name;
-        $divisions->save();
+        $divisions->fill($request->all())->save();
         Session()->flash('alert-success','Division Added Successfully');
         return redirect()->route('divisions.index');
     }
@@ -60,7 +66,10 @@ class DivisionController extends Controller
      */
     public function edit($id)
     {
-        return view('division.edit_division');
+        $division = Division::findOrFail($id);
+        return view('division.edit_division',[
+            'division' => $division
+        ]);
     }
 
     /**
@@ -72,7 +81,10 @@ class DivisionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $division = Division::findOrFail($id);
+        $division->fill($request->all())->update();
+        Session()->flash('alert-success','Division Update Successfully');
+        return redirect()->route('divisions.index');
     }
 
     /**
@@ -83,6 +95,8 @@ class DivisionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Division::findOrFail($id)->delete();
+        Session()->flash('alert-success','Division Delete Successfully');
+        return redirect()->route('divisions.index');
     }
 }

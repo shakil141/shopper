@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constants\ApplicationConstant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,7 +18,13 @@ class district extends Model
     public function division(){
         return $this->belongsTo(division::class);
     }
-     public function upazilla(){
-        return $this->hasMany(upazilla::class);
+     public function upzilla(){
+        return $this->hasMany(upzilla::class);
+    }
+    public function getStatusAttribute($value){
+        if($value == ApplicationConstant::Active){
+            return "Active";
+        }
+        return "InActive";
     }
 }

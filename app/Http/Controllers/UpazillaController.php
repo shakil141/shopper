@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\district;
+use App\Models\division;
+use App\Models\upzilla;
 use Illuminate\Http\Request;
 
 class UpazillaController extends Controller
@@ -13,7 +16,10 @@ class UpazillaController extends Controller
      */
     public function index()
     {
-        //
+        $upazillas = upzilla::paginate(5);
+        return view('upazilla.list_upazilla',[
+            'upazillas' => $upazillas
+        ]);
     }
 
     /**
@@ -23,7 +29,10 @@ class UpazillaController extends Controller
      */
     public function create()
     {
-        //
+        $districts = district::get();
+        return view('upazilla.add_upazilla',[
+            'districts' => $districts
+        ]);
     }
 
     /**
@@ -34,7 +43,15 @@ class UpazillaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate([
+            'upzilla_name' => 'required|unique:upzillas',
+            'status' => 'required',
+            'district_id' => 'required',
+        ]);
+        $upazillas = new upzilla;
+        $upazillas->fill($request->all())->save();
+        Session()->flash('alert-success','Upazilla Added Successfully');
+        return redirect()->route('upzillas.index');
     }
 
     /**
@@ -56,7 +73,12 @@ class UpazillaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $upzilla = upzilla::findOrFail($id);
+        $districts = district::get();
+        return view('upazilla.edit_upazilla',[
+            'upzilla' => $upzilla,
+            'districts' => $districts,
+        ]);
     }
 
     /**
@@ -68,7 +90,10 @@ class UpazillaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $upzilla = upzilla::findOrFail($id);
+        $upzilla->fill($request->all())->update();
+        Session()->flash('alert-success','Upzilla Update Successfully');
+        return redirect()->route('upzillas.index');
     }
 
     /**
@@ -79,6 +104,8 @@ class UpazillaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        upzilla::findOrFail($id)->delete();
+        Session()->flash('alert-danger','Upzilla Delete Successfully');
+        return redirect()->route('upzillas.index');
     }
 }

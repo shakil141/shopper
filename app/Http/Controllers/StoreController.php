@@ -40,9 +40,9 @@ class StoreController extends Controller
         $request->validate([
             'store_name' => 'required',
             'contact_no' => 'required',
-            //'weekend' => 'required',
-            // 'open_hour' => 'required',
-            // 'close_hour' => 'required',
+            'weekend' => 'required',
+            'open_hour' => 'required',
+            'close_hour' => 'required',
             'status' => 'required',
         ]);
         $stores = new Store;
@@ -50,15 +50,9 @@ class StoreController extends Controller
         $stores->store_address = $request->store_address;
         $stores->contact_person = $request->contact_person;
         $stores->contact_no = $request->contact_no;
-
-        $weekends = $request->input('weekend');
-        foreach($weekends as $item){
-            Store::create($item);
-        }
-
-       // $stores->weekend = $request->weekend;
-       // $stores->open_hour = $request->open_hour;
-       // $stores->close_hour = $request->close_hour;
+       $stores->weekend = json_encode($request->weekend);
+       $stores->open_hour = $request->open_hour;
+       $stores->close_hour = $request->close_hour;
         $stores->status = $request->status;
         $stores->save();
         Session()->flash('alert-success','Store Added Successfully');
@@ -105,9 +99,9 @@ class StoreController extends Controller
         $stores->store_address = $request->store_address;
         $stores->contact_person = $request->contact_person;
         $stores->contact_no = $request->contact_no;
-        //$stores->weekend = $request->weekend;
-       // $stores->open_hour = $request->open_hour;
-       // $stores->close_hour = $request->close_hour;
+        $stores->weekend = json_encode($request->weekend);
+        $stores->open_hour = $request->open_hour;
+        $stores->close_hour = $request->close_hour;
         $stores->status = $request->status;
         $stores->update();
         Session()->flash('alert-success','Store Update Successfully');

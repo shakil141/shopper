@@ -15,7 +15,7 @@ class CreateUpzillasTable extends Migration
     {
         Schema::create('upzillas', function (Blueprint $table) {
             $table->id();
-            $table->string('upzilla_name');
+            $table->string('upzilla_name')->unique();
             $table->tinyInteger('status')->default(1)->comment('1=Active,0=InActive');
             $table->unsignedBigInteger('district_id');
             $table->foreign('district_id')->references('id')->on('districts');

@@ -44,7 +44,7 @@
                             <div class="alert alert-danger">{{$message}}</div>
                         @enderror
                     </div><br>
-                    <div class="col-md-6"><br>
+                    <div class="col-md-12"><br>
                         <label for="weekend" class="form-title form-control-label">Weekend</label><br>
                         <label><input type="checkbox" name="weekend[]" value="saturday" id=""> Saturday &nbsp;</label>
                         <label><input type="checkbox" name="weekend[]" value="sunday" id=""> Sunday  &nbsp;</label>
@@ -54,6 +54,20 @@
                         <label><input type="checkbox" name="weekend[]" value="thursday" id=""> Thursday  &nbsp;</label>
                         <label><input type="checkbox" name="weekend[]" value="friday" id=""> Friday  &nbsp;</label>
                          @error('weekend')
+                            <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
+                    </div><br>
+                    <div class="col-md-6"><br>
+                        <label for="open_hour" class="form-title form-control-label">Open Hour</label>
+                        <input name="open_hour" type="time" id="open_hour" class="form-control @error('open_hour') is-invalid @enderror" value="{{$store->open_hour ?? old('open_hour')}}">
+                        @error('open_hour')
+                            <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
+                    </div><br>
+                    <div class="col-md-6"><br>
+                        <label for="close_hour" class="form-title form-control-label">Closed Hour</label>
+                        <input name="close_hour" type="time" id="close_hour" class="form-control @error('close_hour') is-invalid @enderror" value="{{$store->close_hour ?? old('close_hour')}}">
+                        @error('close_hour')
                             <div class="alert alert-danger">{{$message}}</div>
                         @enderror
                     </div><br>

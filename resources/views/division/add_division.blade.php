@@ -17,8 +17,8 @@
                 <div class="row form-group">
                     <div class="col col-md-6">
                         <div class="form-group">
-                            <label for="" class="form-title form-control-label">Status</label>
-                            <select name="division_name" class="form-select form-control" aria-label="Default select example">
+                            <label for="" class="form-title form-control-label">Division</label>
+                            <select name="division_name" class="form-select form-control @error('status') is-invalid @enderror" aria-label="Default select example">
                                 <option value="">Selected</option>
                                 <option value="dhaka">Dhaka</option>
                                 <option value="chottogram">Chottogram</option>
@@ -28,8 +28,21 @@
                                 <option value="sylhet">Sylhet</option>
                                 <option value="mymensingh">Mymensingh</option>
                             </select>
+                            @error('division_name')
+                                <div class="alert text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col col-md-6">
+                        <div class="form-group">
+                            <label for="" class="form-title form-control-label">Status</label>
+                            <select name="status" class="form-select form-control @error('status') is-invalid @enderror" aria-label="Default select example">
+                                <option value="">Selected</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inacive</option>
+                            </select>
                             @error('status')
-                                <div class="alert alert-danger">{{$message}}</div>
+                                <div class="alert text-danger">{{$message}}</div>
                             @enderror
                         </div>
                     </div>

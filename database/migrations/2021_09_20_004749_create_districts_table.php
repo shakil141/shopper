@@ -15,7 +15,7 @@ class CreateDistrictsTable extends Migration
     {
         Schema::create('districts', function (Blueprint $table) {
             $table->id();
-            $table->string('district_name');
+            $table->string('district_name')->unique();
             $table->tinyInteger('status')->default(1)->comment('1=Active,0=InActive');
             $table->unsignedBigInteger('division_id');
             $table->foreign('division_id')->references('id')->on('divisions');
