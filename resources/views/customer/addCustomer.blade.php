@@ -123,7 +123,7 @@
                 url:'/menu-wise-division/'+division_id,
                 type:'GET',
                 success:function(response) {
-                    let categories = "<select class='form-control district_id'>"
+                    let categories = "<select class='form-control district_id' name='district_name'>"
                         $.each(response,function(index,value) {
                             categories += `<option value="${value.id}">${value.district_name}</option>`
                         })
@@ -143,7 +143,7 @@
                 url:'/menu-wise-district/'+district_id,
                 type:'GET',
                 success:function(response){
-                    let upzilla = "<select class='form-control'>"
+                    let upzilla = "<select class='form-control' name='upazilla_name'>"
                         $.each(response,function (index,value) {
                             upzilla += `<option value="${value.id}">${value.upzilla_name}</option>`;
                         })
