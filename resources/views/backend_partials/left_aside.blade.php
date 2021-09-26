@@ -4,25 +4,48 @@
             <ul class="nav navbar-nav">
                 <li class="active">
                     <a href="{{ route('dashborad') }}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
-                    
+
                 </li>
-                   
+
                 <li class="menu-title">Store</li><!-- /.menu-title -->
+
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-align-center"></i>RBAC</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fas fa-hand-point-right"></i><a href="{{ route('user.index') }}">User</a></li>
+                        <li><i class="fas fa-hand-point-right"></i><a href="{{ route('role.index') }}">Role</a></li>
+                        <li><i class="fas fa-hand-point-right"></i><a href="">User Access</a></li>
+                    </ul>
+                </li>
+
+
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Product</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('product.create') }}">Add Product</a></li>
                         <li><i class="fa fa-id-badge"></i><a href="{{ route('product.index') }}">Product List</a></li>
-                        
+
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Category</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('categories.create') }}">Add Category</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{ route('categories.index') }}">Category List</a></li>
+
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Brand</a>
+
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-table"></i><a href="{{route('brands.create')}}">Add Brand</a></li>
                         <li><i class="fa fa-table"></i><a href="{{route('brands.index')}}">Brand List</a></li>
                     </ul>
                 </li>
+
+
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Customer</a>
                     <ul class="sub-menu children dropdown-menu">

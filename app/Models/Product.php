@@ -26,5 +26,6 @@ class Product extends Model
             return 'Active';
         }
         return 'In Active';
+
     }
 }

@@ -11,9 +11,15 @@ use App\Http\Controllers\DivisionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
+
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UpazillaController;
+
+use App\Http\Controllers\UserRoleController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RoleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,21 +32,29 @@ use App\Http\Controllers\UpazillaController;
 |
 */
 
-Route::resource('/',LoginController::class)->only('index','store');
+Route::resource('/',LoginController::class)->only('index','store')->middleware('guest');
 
 Route::post('logout',[LoginController::class,'logout'])->name('logout');
 
-Route::group(['prefix' =>'backend'],function(){
+Route::group([ 'prefix' => 'backend','middleware' => 'auth' ],function(){
 
     Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
 
     Route::resource('product', ProductController::class);
+
+    Route::resource('user',UserRoleController::class);
+
+    Route::resource('role',RoleController::class);
+
+    // brands
+    Route::resource('brands', BrandController::class);
+
+    Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
+
+    Route::resource('/categories',CategoryController::class);
+
+
 });
-
-Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
-
-// brands
-Route::resource('brands', BrandController::class);
 
 // customer
 Route::resource('customers',CustomerController::class);
@@ -61,3 +75,6 @@ Route::resource('districts',DistrictController::class);
 
 // upazillas
 Route::resource('upzillas',UpazillaController::class);
+
+//Route::post('/save-porduct',[ProductController::class,'saveProduct'])->name('saveProduct');
+
