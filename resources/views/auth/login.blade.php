@@ -24,8 +24,8 @@
                 </div>
                 <div class="login-form">
 
-                    {!!Form::open(['url' => route('store')])!!}
-
+                  
+                    {!! Form::open(['url' => route('store')]) !!}
                         <div class="form-group">
                             {{Form::label('email','Email-Address')}}
 

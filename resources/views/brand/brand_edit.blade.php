@@ -10,14 +10,7 @@
         </a>
     </div>
     <div class="card">
-        {{-- @if ($errors->any())
-           <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                <span>{{$error}}</span>
-                <br>
-            @endforeach   
-            </div> 
-        @endif --}}
+        
         <div class="card-body card-block">
             <form action="{{route('brands.update',['brand'=>$brands->id])}}" method="POST" class="form-horizontal">
                 @csrf
