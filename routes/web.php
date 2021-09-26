@@ -56,7 +56,7 @@ Route::resource('suppliers',SupplierController::class);
 // division
 Route::resource('divisions',DivisionController::class);
 
-// districts
+// districts 
 Route::resource('districts',DistrictController::class);
 
 // upazillas

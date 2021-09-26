@@ -17,14 +17,19 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     function menuWiseDivision($division_id){
+               $district = district::query()->where('division_id',$division_id)->get();
+                return response()->json($district);
+                
+        }
+    // function menuWiseDivision($division_id){
     //    try{
-           $district = district::query()->where('division_id',$division_id)->get();
-            return response()->json($district);
+        //    $district = district::query()->where('division_id',$division_id)->get();
+        //     return response()->json($district);
             // return response()->json($district,Response::HTTP_OK);
     //    }catch(\Exception $exception){
     //         return response()->json($exception->getMessage(),Response::HTTP_INTERNAL_SERVER_ERROR);
     //    }
-    }
+    // }
 
     function menuWiseDistrict($district_id){
         $upzilla = upzilla::where('district_id',$district_id)->get();
