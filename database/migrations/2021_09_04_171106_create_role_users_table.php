@@ -23,6 +23,7 @@ class CreateRoleUsersTable extends Migration
             $table->string('password');
             $table->string('confirm_password');
             $table->string('store');
+            $table->string('image')->nullable();
             $table->boolean('status')->comment('0=active/1=Inactive');
             $table->timestamps();
         });

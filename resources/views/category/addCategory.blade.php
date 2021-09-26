@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-body card-block">
                         {{ Form::open(['route' => 'categories.store','method'=>'post','class'=>'form-horizontal', 'id'=>'categoryForm']) }}
-                        
+
                             <div class="row form-group">
                                 <div class="col col-md-3">{{Form::label('category-name', 'Category Name',['class'=>'form-control-label'])}}</div>
                                 <div class="col-12 col-md-9">
@@ -76,7 +76,7 @@
                             <div class="row form-group" id="menuField">
                                 <div class="col col-md-3">{{Form::label('category-menu', 'Menu',['class'=>'form-control-label'])}}</div>
                                 <div class="col-12 col-md-9">
-                                    <select name="menu" id="category-menu" class="form-control">
+                                    <select name="menu" id="category-menu" class="form-control menu">
                                         <option value="" selected disable>Please select</option>
                                         @foreach($categoriesMenu as $cat)
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
@@ -136,7 +136,7 @@
             type.removeAttribute('disabled');
             if(types[1].checked){
                 categoryForm.insertBefore(menuField, categorySubmit);
-                
+
             }
             if(types[2].checked){
                 categoryForm.insertBefore(menuField, categorySubmit);
@@ -151,4 +151,6 @@
         }
     }
 </script>
+
+
 @endsection

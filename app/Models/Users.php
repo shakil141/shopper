@@ -21,7 +21,7 @@ class Users extends Model
         'password',
         'confirm_password',
         'status',
-        'store'
+        'image'
     ];
 
     protected $perPage = 10;
@@ -43,8 +43,8 @@ class Users extends Model
         $this->attributes['store'] = json_encode($value);
     }
 
-    public function getCategoryAttribute($value)
+    public function getStoreAttribute($value)
     {
-        return $this->attributes['store'] = json_decode($value);
+        return collect(json_decode($value))->implode(',');
     }
 }

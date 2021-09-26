@@ -18,6 +18,8 @@
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/datatables-select.min.css') }}">
 
 <style>
 #weatherWidget .currentDesc {
@@ -78,7 +80,16 @@
         color: #000;
         margin-left: 4px;
     }
-
+    span.role_btn {
+    background: #105c10;
+    color: #fff;
+    font-weight: 600;
+    padding-left: inherit;
+    font-size: .75rem;
+    border-radius: .25rem;
+    padding: 7px;
+    margin: 7px;
+}
     select,input,textarea{
 
         border-radius: 10px!important;
@@ -114,5 +125,9 @@
     .table_heading_wrapper a {
         margin-top: 8px;
     }
+
+    .img-fit img {
+    width: 100px;
+}
 
 </style>

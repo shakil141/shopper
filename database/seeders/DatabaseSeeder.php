@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\UserAccess;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +24,8 @@ class DatabaseSeeder extends Seeder
 
             ProductSeeder::class,
             UsersSeeder::class,
-            RoleSeeder::class
+            RoleSeeder::class,
+            UserAccessSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
         \App\Models\User::factory(10)->create();

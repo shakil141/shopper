@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Users;
 
 class AdminController extends Controller
 {
@@ -11,5 +12,6 @@ class AdminController extends Controller
         return view('backend.dashborad');
     }
 
-   
+
+
 }

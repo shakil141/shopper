@@ -1,5 +1,6 @@
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
@@ -8,12 +9,16 @@
 <!--  Chart js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
 
+
+<script src="{{ asset('assets/js/datatables.min.js') }}"></script>
+<script src="{{ asset('assets/js/datatables-select.min.js') }}"></script>
+
 <!--Chartist Chart-->
 <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-legend@0.6.2/chartist-plugin-legend.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.2/jquery.flot.js" integrity="sha512-GzTUEIEYsUnIsjjeFHNxX9mO4JTRcztouKrHl8ZejyU067oDfhhAd4mpOHygKkiXRuJr+AHF/v3y42Nk/LrvUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{--
+<script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script> --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.2/jquery.flot.js" integrity="sha512-GzTUEIEYsUnIsjjeFHNxX9mO4JTRcztouKrHl8ZejyU067oDfhhAd4mpOHygKkiXRuJr+AHF/v3y42Nk/LrvUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
@@ -215,5 +220,6 @@
         });
         // Bar Chart #flotBarChart End
     });
+
 
 </script>

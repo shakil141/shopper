@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserAccessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,9 @@ Route::post('logout',[LoginController::class,'logout'])->name('logout');
 
 Route::group([ 'prefix' => 'backend','middleware' => 'auth' ],function(){
 
-    Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
+Route::get('/',[AdminController::class,'homepage'])->name('dashborad');
+
+
 
     Route::resource('product', ProductController::class);
 
@@ -38,6 +41,7 @@ Route::group([ 'prefix' => 'backend','middleware' => 'auth' ],function(){
 
     Route::resource('role',RoleController::class);
 
+    Route::resource('user_access',UserAccessController::class);
     // brands
     Route::resource('brands', BrandController::class);
 

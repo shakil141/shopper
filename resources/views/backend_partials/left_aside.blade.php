@@ -14,7 +14,7 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fas fa-hand-point-right"></i><a href="{{ route('user.index') }}">User</a></li>
                         <li><i class="fas fa-hand-point-right"></i><a href="{{ route('role.index') }}">Role</a></li>
-                        <li><i class="fas fa-hand-point-right"></i><a href="">User Access</a></li>
+                        <li><i class="fas fa-hand-point-right"></i><a href="{{ route('user_access.index') }}">User Access</a></li>
                     </ul>
                 </li>
 

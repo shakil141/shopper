@@ -19,7 +19,7 @@
         </div>
         <div class="card">
             <div class="card-body card-block">
-                
+
                 <form action="{{ route('product.update' , ['product' => $single_product->id ]) }}" method="POST" class="form-horizontal">
                     @csrf
                     @method('PUT')
@@ -30,7 +30,7 @@
                                 <select name="product_type" class="form-select form-control" aria-label="Default select example">
                                     <option value="In Stock Space" {{ $single_product->product_type == 'In Stock Space' ? 'selected' : '' }} >In Stock Space</option>
                                     <option value="Pre Order" {{ $single_product->product_type == 'Pre Order' ? 'selected' : '' }} >Pre Order</option>
-                                  </select>    
+                                  </select>
                             </div>
                             @error('product_type')
                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -57,7 +57,7 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        
+
                     </div>
                     <div class="row form-group">
                         <div class="col-md-4">
@@ -83,7 +83,7 @@
                                 <label for="" class="form-title form-control-label">Product Sku</label>
                                 <input type="text" placeholder="Product Slug" class="form-control">
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="row form-group">
@@ -91,7 +91,7 @@
                             <div class="form-group">
                                 <label  class="form-title  form-control-label">Product Category</label>
                                 <select name="product_category" class="form-select form-control" aria-label="Default select example">
-                    
+
                                     <option value="Tops & T-Shirts" {{ $single_product->product_category == 'Tops & T-Shirts' ? 'selected' : '' }} >Tops & T-Shirts</option>
                                     <option value="Pants" {{ $single_product->product_category == 'Pants' ? 'selected' : '' }} >Pants</option>
                                     <option value="Skirts" {{ $single_product->product_category == 'Skirts' ? 'selected' : '' }} >Skirts</option>
@@ -134,7 +134,7 @@
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Brand</label>
                                 <select name="product_brand" class="form-select form-control" aria-label="Default select example">
-                                    
+
                                     <option value="Blue 40" {{ $single_product->product_brand == 'Blue 40' ? 'selected' : '' }} >Blue 40</option>
                                     <option value="Expert Items" {{ $single_product->product_brand == 'Expert Items' ? 'selected' : '' }} >Expert Items</option>
 
@@ -168,7 +168,7 @@
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Unit</label>
                                 <select name="product_unit" class="form-select form-control" aria-label="Default select example">
-                                    
+
                                     <option value="Color & Size" {{ $single_product->product_unit == 'Color & Size' ? 'selected' : '' }} >Color & Size</option>
                                     <option value="Color" {{ $single_product->product_unit == 'Color' ? 'selected' : '' }} >Color</option>
                                     <option value="Size" {{ $single_product->product_unit == 'Size' ? 'selected' : '' }} >Size</option>
@@ -196,15 +196,15 @@
                                 <label for="" class="form-title form-control-label">Alert Quantity</label>
                                 <input name="alert_quantity"  type="number" value="10" class="form-control">
                             </div>
-                            
+
                         </div>
                         <div class="col col-md-4">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label">Product Status</label>
                                 <select name="status" class="form-select form-control" aria-label="Default select example">
-                                    
-                                    <option value="0" {{ $single_product->product_status == '0' ? 'selected' : '' }} >In Active</option>
-                                    <option value="1" {{ $single_product->product_status == '1' ? 'selected' : '' }} >Active</option>
+
+                                    <option value="0" {{ $single_product->product_status == 'InActive' ? 'selected' : '' }} >In Active</option>
+                                    <option value="1" {{ $single_product->product_status == 'Active' ? 'selected' : '' }} >Active</option>
 
                                 </select>
                             </div>
@@ -217,13 +217,13 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="" class="form-title form-control-label"><i class="fas fa-align-justify"></i> Product Description</label>
-                                <textarea type="text" name="product_description" value="{{ old('product_description') ?? $single_product->product_description }}" class="form-control" name="summernote" id="summernote"></textarea>  
+                                <textarea type="text" name="product_description" value="{{ old('product_description') ?? $single_product->product_description }}" class="form-control" name="summernote" id="summernote"></textarea>
                             </div>
                             @error('product_description')
                                  <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                           
+
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
@@ -255,7 +255,7 @@
                     </div>
                 </form>
             </div>
-           
+
         </div>
     </div>
 @endsection

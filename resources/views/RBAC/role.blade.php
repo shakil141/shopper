@@ -31,7 +31,7 @@
             <div class="card-body">
             @include('backend_partials.toast')
 
-                <table class="table table-bordered">
+                <table id="VisitorDt" class="table table-striped  table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr class="text-center">
                             <th scope="col" style="background: #3498db">SL No</th>
@@ -43,7 +43,7 @@
                     </thead>
                     <tbody>
                         @foreach ($all_role as $role)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $role->role_name }}</td>
                                 <td>{{ $role->role_display_person }}</td>

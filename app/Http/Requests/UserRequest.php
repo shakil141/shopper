@@ -31,7 +31,8 @@ class UserRequest extends FormRequest
             'user_email' => 'required|email',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
-            'status' => 'required'
+            'status' => 'required',
+            'image' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,pdf|max:2048'
         ];
     }
 }

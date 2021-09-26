@@ -31,10 +31,11 @@
             <div class="card-body">
             @include('backend_partials.toast')
 
-                <table class="table table-bordered">
+                <table id="VisitorDt" class="table table-striped  table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr class="text-center">
                             <th scope="col" style="background: #3498db">SL No</th>
+                            <th scope="col" style="background: #3498db">Profile Image</th>
                             <th scope="col" style="background: #3498db">User Name</th>
                             <th scope="col" style="background: #3498db">User Email</th>
                             <th scope="col" style="background: #3498db">Contact No</th>
@@ -45,18 +46,17 @@
                     </thead>
                     <tbody>
                         @foreach ($user as $user_item)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
+                                <td style="width: 100px"><img src="{{asset('userimage/'.$user_item->image)}}" alt="user_img"></td>
                                 <td>{{ $user_item->user_name}}</td>
                                 <td>{{ $user_item->user_email}}</td>
                                 <td>{{ $user_item->phone_number}}</td>
-                                <td>
-
-                                </td>
+                                <td>{{ $user_item->store }}</td>
                                 <td class="status_btn">{{ $user_item->status}}</td>
                                 <td class="text-center">
-                                    <a href=""  data-toggle="modal" data-target="#exampleModalLongEdit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-                                    <a  style="margin-left: 8px" href="" class="btn btn-success btn-sm"><i class="fas fa-sync-alt"></i></a>
+                                    <a href="{{ route('user.edit', ['user' => $user_item->id ]) }}"  class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a  style="margin-left: 8px" href="{{ url('/status',$user_item->id) }}" class="btn btn-success btn-sm"><i class="fas fa-sync-alt"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -81,9 +81,18 @@
                     </button>
 
                 </div>
-            <form action="{{ route('user.store')}}" method="POST">
+            <form action="{{ route('user.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
+                    <div class="profile_img_wrapper">
+                        <label  class="font" style="color: var(--blue);">Profile Image</label>
+                        <div class="d-flex justify-content-center">
+                            <div class="w-20 h-20 img-fit">
+                                <img src="{{ asset('assets/images/blank.jpg') }}"  alt="profile_img">
+                            </div>
+                        </div>
+                    </div>
+                        <input type="file" name="image"  class="mt-3 mb-3" style="color: black;">
 
                     <div class="form-group">
                         <label for="exampleInputFirstName" class="strong">First Name</label>
@@ -152,6 +161,7 @@
                         <input  type="submit" class="btn btn-primary " id="formSubmit" value="Submit">
                       </div>
                     </div>
+                </div>
                   </form>
             </div>
 
